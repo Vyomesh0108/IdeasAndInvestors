@@ -2,6 +2,7 @@
 Author: W3layouts
 Author URL: http://w3layouts.com
 --*/
+
 /* reset code */
 html {
     scroll-behavior: smooth;
@@ -178,10 +179,10 @@ input[type="Password"] {
 }
 
 
-.btn-primary:hover {
-    background-color: #7d32eb;
-    color: #fff;
-}
+    .btn-primary:hover {
+        background-color: #7d32eb;
+        color: #fff;
+    }
 
 .form-row.bottom {
     display: flex;

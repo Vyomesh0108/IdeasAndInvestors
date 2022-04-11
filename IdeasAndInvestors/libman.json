@@ -3,8 +3,15 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
+      "library": "jquery.mask@1.14.16",
+      "destination": "wwwroot/js/",
+      "files": [
+        "jquery.mask.min.js"
+      ]
+    },
+    {
       "library": "datatables@1.10.21",
-      "destination": "wwwroot/lib/datatables/"
+      "destination": "wwwroot/lib/datatables/css/"
     }
   ]
 }

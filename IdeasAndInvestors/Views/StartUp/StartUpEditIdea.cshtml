@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_IdeasInvestorsStartUp.cshtml";
     var qList = (List<IdeasAndInvestors.Models.CategoryMaster>)ViewBag.qList;
 }
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/template/assets/css/style-starter.css">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
+
 
 @using (Html.BeginForm("StartUpEditIdea","StartUp",FormMethod.Post,new {enctype = "multipart/form-data" }))
 {
@@ -22,12 +27,12 @@
             <!-- main content -->
             <div class="w3l-form-info">
                 <div class="w3_info">
-
+                   
                     <input type="hidden"  id="Iid" name="Iid" value="@Model.Iid" >
                     <input type="hidden" id="Pid" name="Pid" value="@Model.Pid">
                     <input type="hidden" id="Iimage" name="Iimage" value="@Model.Iimage">
                     <input type="hidden" id="Idate" name="Idate" value="@Model.Idate">
-
+                    
                         <div class="input-group">
                             <span><i class="fas fa-lightbulb-o" aria-hidden="true"></i></span>
                             <input type="text" placeholder="@Model.Ititle"  id="Ititle" value="@Model.Ititle" name="Ititle">
@@ -45,7 +50,7 @@
                                 }                            
                             </select>
                         </div>
-
+                       
                         <div class="input-group">
                             <span><i class="fas fa-money" aria-hidden="true"></i></span>
                             <input type="text" placeholder="@Model.IinvestmentNeeded"  value="@Model.IinvestmentNeeded" id="IinvestmentNeeded" name="IinvestmentNeeded">
@@ -71,22 +76,22 @@
                             <span><i class="fas fa-gift" aria-hidden="true"></i></span>
                             <input type="text" placeholder="Reward between 10% - 20%" value="@Model.IRFLT20Pnt" id="IRFLT20Pnt" name="IRFLT20Pnt">
                         </div>
-
+                        
                         <div>
                             <span>@*<i class="fas fa-image" aria-hidden="true"></i>*@Idea Image</span>
-
+                            
                             <input type="file" id="file" name="file" accept="image/*"  />
                         </div>
-
+                        
                         <button class="btn btn-primary btn-block" type="submit">Edit Idea</button>
-
+                 
                      @if (TempData["ComplainMsg"]!= null)
                                     {
                                         <label style="color:red">
                                             @TempData["ComplainMsg"]
                                         </label>
                                     }
-
+                    
                     @*<p class="account">Don't have an account? <a href="@Url.Action("SignUP","Login")">Sign up</a></p>*@
                 </div>
             </div>
@@ -94,7 +99,7 @@
         </div>
         <!-- //container -->
         <!-- footer -->
-
+        
 </div>
         <!-- footer -->
 } 

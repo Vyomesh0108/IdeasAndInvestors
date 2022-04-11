@@ -1,0 +1,88 @@
+﻿@model IEnumerable<IdeasAndInvestors.Models.IdeaMaster>
+@{
+    ViewData["Title"] = "StartUpYourInvestors";
+    Layout = "~/Views/Shared/_IdeasInvestorsStartUp.cshtml";
+    var investor = (List<IdeasAndInvestors.Models.InvestmentMaster>)ViewBag.Investors;
+    var personMaster = (List<IdeasAndInvestors.Models.PersonMaster>)ViewBag.personMaster;
+}
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/template/assets/css/style-starter.css">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
+
+
+<center><h1>Your Investors</h1> </center>
+
+    <table id="booking" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Idea Title</th>
+                <th>Investor Name</th>
+                <th>Invested Amount</th>
+                <th>Investment Date</th>
+                <th>Idea Image</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        @{
+            string name = "";
+            @foreach (var invest in investor)
+            {
+                                 
+                @foreach (var idea in Model)
+                {
+                     @if (invest.Iid == idea.Iid)
+                        {
+                            
+                            @foreach(var person in personMaster)
+                                {
+                                    @if (invest.Pid == person.Pid)
+                                    {
+                                name = person.Pname;
+                            }
+
+
+                            }
+                             
+                            <tr>
+                            <td>    
+                            
+                                @idea.Ititle
+                            </td >
+                            <td>
+                                @name
+
+                            </td>
+                            <td>
+                                $@invest.Insamount
+
+                            </td>
+                            <td>
+                                @invest.Insdate
+
+                            </td>
+
+
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(@idea.Iimage))
+                                {
+                                     <img width="100px" height="100px" src="@Url.Content("~/" + idea.Iimage)" alt="No image found">
+                                }
+                            </td>
+                            </tr>
+
+                        }
+               }
+            }
+
+           }
+
+        </tbody>
+    </table>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+    $('#booking').DataTable();
+} );    
+    </script>

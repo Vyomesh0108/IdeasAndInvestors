@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "InvestorInvestmentView";
     Layout = "~/Views/Shared/_IdeasInvestorsInvestor.cshtml";
     var invested_amount = ViewBag.invested_amount;
@@ -12,12 +13,19 @@
     TempData["IinvestmentNeeded"]=IinvestmentNeeded;
 }
 
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/template/assets/css/style-starter.css">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
 
+
+    
 <center>
 <h1 class="header-agileits w3 w3l agile-info mt-2" style="color: black;">Payment Page</h1>
 </center><br />
 @using (Html.BeginForm("InvestorInvestmentView","Investor",FormMethod.Post))
 {
+    
 <div class="container py-3 d-flex flex-column align-items-center" style="background-color:#EFEFEF">
     <div class="w-50 p-2" style="background-color:#EFEFEF">
 
@@ -150,14 +158,13 @@
     <label for="inputZip" class="form-label">Zip</label>
     <input type="text" class="form-control" id="inputZip">
   </div>
-
+  
   <div class="col-md-6 my-2 w-100">
     <button type="submit" class="btn btn-primary">Sign in</button>
   </div>
 </div>*@
 </div>
 }
-
 
 <script>
     $(document).ready(function()
@@ -176,4 +183,4 @@
             }
         });
     });
-</script> 
+</script>

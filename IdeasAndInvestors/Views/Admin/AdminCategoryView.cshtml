@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<IdeasAndInvestors.Models.CategoryMaster>
-
 @{
     ViewData["Title"] = "AdminCategoryView";
     Layout = "~/Views/Shared/_IdeasInvestorsAdmin.cshtml";
@@ -14,7 +13,9 @@
                 <th>Category</th>
                 <th>Category Photo</th>
                 <th>Action</th>
-
+                
+                
+                
             </tr>
         </thead>
         <tbody>
@@ -26,7 +27,7 @@
                 </td>
                 <td>
                     @user.Catname
-
+                    
                 </td>
                 <td>
                     <img width="100px" height="100px" src="@Url.Content("~/" + user.Catimage)" alt="No image found">
@@ -35,8 +36,6 @@
                     <a class="btn btn-info" href="@Url.Action("EditCategory","Admin",new {Catid=@user.Catid})" >Edit</a>&nbsp;
                     <a class="btn btn-info" href="@Url.Action("DeleteCategory","Admin", new {Catid=@user.Catid})" >Delete</a>
                 </td>
-
-
 
             </tr>
         }
@@ -47,3 +46,4 @@
     $('#booking').DataTable();
 } );    
     </script>
+

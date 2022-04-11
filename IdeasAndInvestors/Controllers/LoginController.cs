@@ -33,7 +33,6 @@ namespace IdeasAndInvestors.Controllers
             var email = Convert.ToString(frm["Email"]);
             var password = Convert.ToString(frm["Password"]);
             var rdFound = bkDb.PersonMasters.Where(usr => usr.Pemail == email && usr.Ppassword == password).FirstOrDefault();
-
             if (rdFound != null)
             {
                 if (rdFound.Prollid == 2)
@@ -51,19 +50,6 @@ namespace IdeasAndInvestors.Controllers
             }
 
             TempData["ErrMsg"] = "Invalid Email or Password";
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult SignUP()
-        {
-            return View();
-
-        }
-
-        [HttpPost]
-        public IActionResult SignUP(IFormCollection frm)
-        {
             return View();
         }
 
@@ -111,8 +97,17 @@ namespace IdeasAndInvestors.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ContactUs()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ContactUs(DonorMaster donorMaster)
+        {
+            bkDb.DonorMasters.Add(donorMaster);
+            bkDb.SaveChanges();
             return View();
         }
 
@@ -125,7 +120,6 @@ namespace IdeasAndInvestors.Controllers
         [HttpPost]
         public IActionResult SignUPStartUp(PersonMaster personMaster, IFormFile file)
         {
-
             string uniqueImageName = null;
             if (file != null)
             {
@@ -135,9 +129,10 @@ namespace IdeasAndInvestors.Controllers
                 file.CopyTo(new FileStream(finalPath, FileMode.Create));
                 personMaster.Pimage = "images\\StartupImage\\" + uniqueImageName;
             }
+
             personMaster.Pqid = 0;
             personMaster.Panswer = "NoAnswer";
-            personMaster.Prollid = 2; //2 for start up
+            personMaster.Prollid = 2;//2 for startup
             bkDb.PersonMasters.Add(personMaster);
             bkDb.SaveChanges();
             return RedirectToAction("Login");

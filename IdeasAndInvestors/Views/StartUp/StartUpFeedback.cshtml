@@ -3,6 +3,10 @@
     ViewData["Title"] = "StartUpFeedback";
     Layout = "~/Views/Shared/_IdeasInvestorsStartUp.cshtml";
 }
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/template/assets/css/style-starter.css">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
 
 @using (Html.BeginForm("StartUpFeedback","StartUp",FormMethod.Post))
 {
@@ -22,8 +26,8 @@
             <!-- main content -->
             <div class="w3l-form-info">
                 <div class="w3_info">
-
-                        <input type="hidden" value="@TempData["Pid"]" id="Pid" name="Pid"> 
+                   
+                   <input type="hidden" value="@TempData["Pid"]" id="Pid" name="Pid"> 
                         <div class="input-group">
                             <span><i class="fa fa-comments-o" aria-hidden="true"></i></span>
                             <input type="text" placeholder="Please leave your feedback! 🙂 " required="" id="Fdetails" name="Fdetails">
@@ -32,27 +36,27 @@
                         Rate your Experience!<br>
                          <div class="">
                              <select id="Experiencerate" name="Experiencerate">
-
-
+                                
+                                 
 
                                         <option value="Excellent">Excellent😃&nbsp</option>
                                         <option value="Good">Good🙂</option>
                                         <option value="Average">Average😐</option>
                                         <option value="Bad">Bad☹️</option>
-
-
+                                   
+                                                           
                             </select>
                         </div>
-
+                        
                         <button class="btn btn-primary btn-block" type="submit">Submit Feedback</button>
-
+                 
                      @if (TempData["FeedbackMsg"]!= null)
                                     {
                                         <label style="color:red">
                                             @TempData["FeedbackMsg"]
                                         </label>
                                     }
-
+                    
                     @*<p class="account">Don't have an account? <a href="@Url.Action("SignUP","Login")">Sign up</a></p>*@
                 </div>
             </div>
@@ -60,7 +64,7 @@
         </div>
         <!-- //container -->
         <!-- footer -->
-
+        
 </div>
         <!-- footer -->
 }    

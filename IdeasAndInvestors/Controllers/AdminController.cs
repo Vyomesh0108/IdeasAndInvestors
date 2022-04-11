@@ -68,9 +68,16 @@ namespace IdeasAndInvestors.Controllers
         [HttpPost]
         public IActionResult EditCategory(CategoryMaster categorymaster, IFormFile file)
         {
-            //bkDb.Entry(categorymaster).State = EntityState.Modified;
-            //bkDb.SaveChanges();
-            //return RedirectToAction("AdminCategoryView");
+            //var categoryMaster=new CategoryMaster();
+            //var id = Convert.ToInt32(frm["Catid"]);
+            //var new_name = Convert.ToString(frm["Catname"]);
+            //var rdFound=bkDb.CategoryMasters.Where(usr=>usr.Catid==id).FirstOrDefault();
+            //if (rdFound != null)
+            //{
+            //    rdFound.Catname = new_name;
+            //    bkDb.SaveChanges();
+
+            //}
             string uniqueImageName = null;
             if (file != null)
             {
@@ -136,6 +143,26 @@ namespace IdeasAndInvestors.Controllers
             {
                 return RedirectToAction("AdminCategoryView");
             }
+        }
+
+        public IActionResult ContactInformation()
+        {
+            var contactInformation = bkDb.DonorMasters.ToList();
+            return View(contactInformation);
+        }
+
+        public IActionResult FullyFledgedIdeas()
+        {
+            var investments = bkDb.InvestmentMasters.ToList();
+            var ideas = bkDb.IdeaMasters.ToList();
+            ViewBag.investments = investments;
+            return View(ideas);
+        }
+
+        public IActionResult InvestmentDetails()
+        {
+            var rdFound = bkDb.InvestmentMasters.ToList();
+            return View(rdFound);
         }
     }
 }

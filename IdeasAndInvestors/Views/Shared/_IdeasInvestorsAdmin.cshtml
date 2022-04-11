@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -7,16 +8,16 @@
 
     <title>Ideas & Investors</title>
     <!-- web fonts -->
-
+    
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
     <!-- //web fonts -->
     <!-- Template CSS -->
     <!-- css files -->
-
+    
 	<!-- //css files -->
-
+	
 	<!-- google fonts -->
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
 	<!-- //google fonts -->
@@ -33,10 +34,9 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
-
-
+    
   </head>
-
+  
 <!-- popup for login -->
 
 <!-- //popup for login -->
@@ -59,45 +59,50 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Home","Login")">Home</a>
+            <a class="nav-link" href="@Url.Action("AdminHome","Admin")">Home</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("InvestmentDetails","Admin")">Investment Details</a>
           </li>
           @*<li class="nav-item">
             <a class="nav-link" href="@Url.Action("Login","Login")">Login</a>
           </li>*@
           <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("AboutUs","Login")">About</a>
+            <a class="nav-link" href="@Url.Action("FullyFledgedIdeas","Admin")">Fully Fledged Ideas</a>
           </li>
-          <li class="nav-item">
+          @*<li class="nav-item mr-0">
             <a class="nav-link" href="@Url.Action("ContactUs","Login")">Contact</a>
-          </li>
-          <li class="nav-item">
+          </li>*@
+          <li class="nav-item mr-0">
             <a class="nav-link" href="@Url.Action("Home","Login")">Sign Out</a>
           </li>
-
+          
            <li>   
              <div class="dropdown" style="position:relative; left:60px; top:0px">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span><i class="fa fa-user" aria-hidden="true"></i></span>
-                </button>
+                
+                                    
+                                       <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    
+                                </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item">@ViewData["ErrMsg"]</a></li>
+                 <li><a class="dropdown-item">@ViewData["ErrMsg"]</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("AdminViewInvestorDetails","Admin")">Investor details</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("AdminViewStartUpDetails","Admin")">StartUp details</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("AdminComplainDetails","Admin")">Complain details</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("AdminFeedbackDetails","Admin")">Feedback details</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("AdminCategoryView","Admin")">Category details</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("ContactInformation","Admin")">Contact Info.</a></li>
                 <li><a class="dropdown-item" href="@Url.Action("Home","Login")">Sign Out</a></li>
                 </ul>
                 </div>
-
+                
                 </li>
         </ul>
         </div>     
-
+       
       </div>
-
+    
   </nav>
 </section>
 @RenderBody()
@@ -113,10 +118,6 @@
     {
         @RenderSection("InvestorValidation",false)
     }
-    else if(IsSectionDefined("AddIdeaValidation"))
-    {
-        @RenderSection("AddIdeaValidation",false)
-    }
     <!-- grids block 5 -->
  <section class="w3l-footer-29-main" id="footer">
   <div class="footer-29">
@@ -125,7 +126,7 @@
   <div class="grids-forms">
       <div class="main-midd">
           <h4 class="title-head">Newsletter – Get Updates & Latest News</h4>
-
+          
       </div>
       <div class="main-midd-2">
           <form action="#" method="post" class="rightside-form">
@@ -137,7 +138,7 @@
   </div>
   </div>
       <div class="container pt-5">
-
+        
           <div class="d-grid grid-col-4 footer-top-29">
               <div class="footer-list-29 footer-1">
                   <h6 class="footer-title-29">About Us</h6>
@@ -177,14 +178,14 @@
                       <li><a href="@Url.Action("Home","Login")">Home</a></li>
                       <li><a href="@Url.Action("AboutUs","Login")">About</a></li>
                       <li><a href="@Url.Action("Home","Login")">Services</a></li>
-                      <li><a href="#">Blog</a></li>
+                      <li><a href="#"> Blog</a></li>
                       <li><a href="@Url.Action("ContactUs","Login")">Contact</a></li>
                   </ul>
               </div>
           </div>
           <div class="bottom-copies text-center">
-              <p class="copy-footer-29">© 2020 Estate Agent. All rights reserved</p>
-
+              <p class="copy-footer-29">© 2022 Ideas & Investors. All rights reserved</p>
+               
           </div>
       </div>
   </div>

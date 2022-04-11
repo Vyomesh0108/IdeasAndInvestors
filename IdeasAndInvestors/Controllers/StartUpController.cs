@@ -23,6 +23,8 @@ namespace IdeasAndInvestors.Controllers
             HttpContext.Session.SetString("Pid", Convert.ToString(Pid));
             TempData["Pid"] = Convert.ToInt32(HttpContext.Session.GetString("Pid"));
             var rdFound = bkDb.PersonMasters.Where(usr => usr.Pid == Pid).FirstOrDefault();
+            var investmentMaster = bkDb.InvestmentMasters.ToList();
+            ViewBag.investmentMaster = investmentMaster;
             Int32 length = startUpDetails.Count;
             TempData["Found"] = null;
             if (length != 0)
@@ -57,7 +59,6 @@ namespace IdeasAndInvestors.Controllers
             TempData["ComplainMsg"] = "Your complain is submitted successfully!";
             return View();
         }
-
 
         [HttpGet]
         public IActionResult StartUpFeedback()
@@ -203,6 +204,34 @@ namespace IdeasAndInvestors.Controllers
             {
                 return RedirectToAction("StartUpHome");
             }
+        }
+
+        public IActionResult StartUpYourInvestors()
+        {
+            var Pid = Convert.ToInt32(HttpContext.Session.GetString("Pid"));
+            TempData["Pid"] = Pid;
+            var investors = bkDb.InvestmentMasters.ToList();
+            var ideas = bkDb.IdeaMasters.Where(usr => usr.Pid == Pid).ToList();
+            var personMaster = bkDb.PersonMasters.ToList();
+            ViewBag.personMaster = personMaster;
+            ViewBag.Investors = investors;
+            return View(ideas);
+        }
+
+        public IActionResult StartUpContactUs()
+        {
+            var Pid = Convert.ToInt32(
+                HttpContext.Session.GetString("Pid"));
+            TempData["Pid"] = Pid;
+            return View();
+        }
+
+        public IActionResult StartUpAboutUs()
+        {
+            var Pid = Convert.ToInt32(
+               HttpContext.Session.GetString("Pid"));
+            TempData["Pid"] = Pid;
+            return View();
         }
     }
 }
